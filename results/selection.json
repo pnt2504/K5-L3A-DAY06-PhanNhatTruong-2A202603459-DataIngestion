@@ -1,0 +1,50 @@
+{
+  "strategy": "B",
+  "dev_metrics": {
+    "A": {
+      "dev": {
+        "questions": 15,
+        "hit_at_1": {
+          "hits": 11,
+          "total": 15,
+          "rate": 0.7333333333333333
+        },
+        "hit_at_3": {
+          "hits": 13,
+          "total": 15,
+          "rate": 0.8666666666666667
+        }
+      }
+    },
+    "B": {
+      "dev": {
+        "questions": 15,
+        "hit_at_1": {
+          "hits": 12,
+          "total": 15,
+          "rate": 0.8
+        },
+        "hit_at_3": {
+          "hits": 13,
+          "total": 15,
+          "rate": 0.8666666666666667
+        }
+      }
+    },
+    "C": {
+      "dev": {
+        "questions": 15,
+        "hit_at_1": {
+          "hits": 12,
+          "total": 15,
+          "rate": 0.8
+        },
+        "hit_at_3": {
+          "hits": 13,
+          "total": 15,
+          "rate": 0.8666666666666667
+        }
+      }
+    }
+  }
+}

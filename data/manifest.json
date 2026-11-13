@@ -1,0 +1,642 @@
+{
+  "manifest_version": "1.0",
+  "corpus_id": "DAY06-MEDICAL-VI",
+  "verification_status": "Đã kiểm tra số trang, số ký tự và SHA-256 của bốn PDF local. Ba file CDC khớp checksum công bố. File WHO khớp nhan đề và ISBN; chưa đối chiếu được checksum với bản tải chính thức.",
+  "source_count": 4,
+  "counting_method": "Đánh số trang PDF vật lý từ 1. Chỉ tính các trang được chọn có nội dung hữu ích cho corpus. Loại trang bìa, mục lục, trang trống, trang phân cách chỉ có tiêu đề, trang tài liệu tham khảo, trang hoạt động chủ yếu bằng hình, chứng nhận và biểu mẫu. Số ký tự mỗi trang được tính từ pypdf, chuẩn hóa Unicode NFC, gộp khoảng trắng liên tiếp thành một dấu cách và bỏ khoảng trắng đầu/cuối. Tổng ký tự mỗi nguồn bao gồm cả trang bị loại.",
+  "chunking_options": [
+    "fixed_length_1200_chars_overlap_200",
+    "heading_and_page_aware"
+  ],
+  "filter_example": {
+    "field": "topic",
+    "operator": "eq",
+    "value": "diabetes_self_management"
+  },
+  "text_extractor": "pypdf 6.21.4",
+  "total_physical_pages": 74,
+  "total_counted_pages": 39,
+  "meets_minimum_30_content_pages": true,
+  "sources": [
+    {
+      "source_id": "MED001",
+      "title": "Kháng sinh không phải bao giờ cũng là câu trả lời",
+      "source_path_or_url": "data/Kháng sinh.pdf",
+      "official_source_url": "https://stacks.cdc.gov/view/cdc/60690/cdc_60690_DS1.pdf",
+      "publisher": "CDC",
+      "topic": "antibiotic_use",
+      "language": "vi",
+      "license_or_permission": "Public Domain theo hồ sơ CDC Stacks. Kiểm tra quyền riêng của thành phần bên thứ ba nếu tái sử dụng.",
+      "accessed_at": "2026-11-13",
+      "publication_date_or_month": "2017-12-21",
+      "snapshot_version": {
+        "source_publication_version": null,
+        "sha256": "f341b7c0a56d204b3c72bd49a5f0cc644e6bbfb54d476092f42290b8acec5688",
+        "verification": "Khớp checksum SHA512 trên CDC Stacks."
+      },
+      "counted_pages": 2,
+      "total_normalized_chars": 3443,
+      "pages": [
+        {
+          "page_id": "MED001-P001",
+          "physical_page_number": 1,
+          "normalized_char_count": 1956,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung của tờ thông tin về sử dụng kháng sinh."
+        },
+        {
+          "page_id": "MED001-P002",
+          "physical_page_number": 2,
+          "normalized_char_count": 1487,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung của tờ thông tin về sử dụng kháng sinh."
+        }
+      ],
+      "accessed_at_note": "Ngày kiểm tra hồ sơ nguồn chính thức.",
+      "official_record_url": "https://stacks.cdc.gov/view/cdc/60690",
+      "physical_pages": 2,
+      "counted_normalized_chars": 3443
+    },
+    {
+      "source_id": "MED002",
+      "title": "Chăm sóc răng miệng (tài liệu hoạt động cho trẻ em)",
+      "source_path_or_url": "data/răng miệng.pdf",
+      "official_source_url": "https://stacks.cdc.gov/view/cdc/120015/cdc_120015_DS1.pdf",
+      "publisher": "CDC",
+      "topic": "oral_health",
+      "language": "vi",
+      "license_or_permission": "Public Domain theo hồ sơ CDC Stacks. Kiểm tra quyền riêng của thành phần bên thứ ba nếu tái sử dụng.",
+      "accessed_at": "2026-11-13",
+      "publication_date_or_month": "2022-04-27",
+      "snapshot_version": {
+        "source_publication_version": null,
+        "sha256": "3ef2146e974d1e06a5197b5f814e70403fd3534e0c3258fd23288fdd66c1644d",
+        "verification": "Khớp checksum SHA256 trên CDC Stacks."
+      },
+      "counted_pages": 0,
+      "total_normalized_chars": 2031,
+      "pages": [
+        {
+          "page_id": "MED002-P001",
+          "physical_page_number": 1,
+          "normalized_char_count": 463,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang mở đầu hướng dẫn phụ huynh sử dụng cẩm nang hoạt động."
+        },
+        {
+          "page_id": "MED002-P002",
+          "physical_page_number": 2,
+          "normalized_char_count": 229,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Hoạt động tô màu, chủ yếu bằng hình."
+        },
+        {
+          "page_id": "MED002-P003",
+          "physical_page_number": 3,
+          "normalized_char_count": 138,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Hoạt động phân biệt thực phẩm, chủ yếu bằng hình."
+        },
+        {
+          "page_id": "MED002-P004",
+          "physical_page_number": 4,
+          "normalized_char_count": 116,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Hoạt động mê cung, chủ yếu bằng hình."
+        },
+        {
+          "page_id": "MED002-P005",
+          "physical_page_number": 5,
+          "normalized_char_count": 178,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Hoạt động tìm đồ vật, chủ yếu bằng hình."
+        },
+        {
+          "page_id": "MED002-P006",
+          "physical_page_number": 6,
+          "normalized_char_count": 512,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Hoạt động nối chấm, chủ yếu bằng hình."
+        },
+        {
+          "page_id": "MED002-P007",
+          "physical_page_number": 7,
+          "normalized_char_count": 395,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Giấy chứng nhận hoàn thành hoạt động."
+        }
+      ],
+      "accessed_at_note": "Ngày kiểm tra hồ sơ nguồn chính thức.",
+      "official_record_url": "https://stacks.cdc.gov/view/cdc/120015",
+      "physical_pages": 7,
+      "text_extraction_note": "pypdf báo thiếu fontTools cho một số font CFF Type1. Số ký tự dựa trên text trích được bằng phiên bản và môi trường ghi trên.",
+      "counted_normalized_chars": 0
+    },
+    {
+      "source_id": "MED003",
+      "title": "Hỏi đáp về phòng chống tác hại của rượu bia",
+      "source_path_or_url": "data/rượu bia.pdf",
+      "official_source_url": "https://iris.who.int/bitstream/handle/10665/325902/9789290618874-vie.pdf?sequence=1",
+      "publisher": "WHO",
+      "topic": "alcohol_harm_prevention",
+      "language": "vi",
+      "license_or_permission": "CC BY-NC-SA 3.0 IGO, ghi tại trang PDF vật lý 4. https://creativecommons.org/licenses/by-nc-sa/3.0/igo/",
+      "accessed_at": "2026-11-13",
+      "publication_date_or_month": "2019-05-29",
+      "snapshot_version": {
+        "source_publication_version": "ISBN 9789290618874",
+        "sha256": "1b274bf461612f216b79b8d3cbb66fb7de729a2a7329f2475eeded036e162521",
+        "verification": "Nhan đề và ISBN khớp hồ sơ WHO. Chưa đối chiếu checksum bản tải chính thức."
+      },
+      "counted_pages": 25,
+      "total_normalized_chars": 65190,
+      "pages": [
+        {
+          "page_id": "MED003-P001",
+          "physical_page_number": 1,
+          "normalized_char_count": 0,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang không trích xuất được chữ, ngoài phần nội dung chính."
+        },
+        {
+          "page_id": "MED003-P002",
+          "physical_page_number": 2,
+          "normalized_char_count": 0,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang không trích xuất được chữ, ngoài phần nội dung chính."
+        },
+        {
+          "page_id": "MED003-P003",
+          "physical_page_number": 3,
+          "normalized_char_count": 56,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang tên ấn phẩm."
+        },
+        {
+          "page_id": "MED003-P004",
+          "physical_page_number": 4,
+          "normalized_char_count": 3655,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang bản quyền và thông tin xuất bản."
+        },
+        {
+          "page_id": "MED003-P005",
+          "physical_page_number": 5,
+          "normalized_char_count": 2151,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Mục lục."
+        },
+        {
+          "page_id": "MED003-P006",
+          "physical_page_number": 6,
+          "normalized_char_count": 766,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Mục lục."
+        },
+        {
+          "page_id": "MED003-P007",
+          "physical_page_number": 7,
+          "normalized_char_count": 2141,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Lời tựa."
+        },
+        {
+          "page_id": "MED003-P008",
+          "physical_page_number": 8,
+          "normalized_char_count": 265,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Lời cảm ơn."
+        },
+        {
+          "page_id": "MED003-P009",
+          "physical_page_number": 9,
+          "normalized_char_count": 1393,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Danh sách người đóng góp."
+        },
+        {
+          "page_id": "MED003-P010",
+          "physical_page_number": 10,
+          "normalized_char_count": 51,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang phân cách chỉ có tiêu đề."
+        },
+        {
+          "page_id": "MED003-P011",
+          "physical_page_number": 11,
+          "normalized_char_count": 2214,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần I: Sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P012",
+          "physical_page_number": 12,
+          "normalized_char_count": 946,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần I: Sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P013",
+          "physical_page_number": 13,
+          "normalized_char_count": 2895,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần I: Sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P014",
+          "physical_page_number": 14,
+          "normalized_char_count": 567,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần I: Sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P015",
+          "physical_page_number": 15,
+          "normalized_char_count": 2492,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần I: Sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P016",
+          "physical_page_number": 16,
+          "normalized_char_count": 847,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần I: Sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P017",
+          "physical_page_number": 17,
+          "normalized_char_count": 60,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang phân cách chỉ có tiêu đề."
+        },
+        {
+          "page_id": "MED003-P018",
+          "physical_page_number": 18,
+          "normalized_char_count": 1595,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần II: Tình hình sử dụng rượu bia tại Việt Nam và hậu quả."
+        },
+        {
+          "page_id": "MED003-P019",
+          "physical_page_number": 19,
+          "normalized_char_count": 519,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần II: Tình hình sử dụng rượu bia tại Việt Nam và hậu quả."
+        },
+        {
+          "page_id": "MED003-P020",
+          "physical_page_number": 20,
+          "normalized_char_count": 1780,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần II: Tình hình sử dụng rượu bia tại Việt Nam và hậu quả."
+        },
+        {
+          "page_id": "MED003-P021",
+          "physical_page_number": 21,
+          "normalized_char_count": 1051,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần II: Tình hình sử dụng rượu bia tại Việt Nam và hậu quả."
+        },
+        {
+          "page_id": "MED003-P022",
+          "physical_page_number": 22,
+          "normalized_char_count": 2935,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần II: Tình hình sử dụng rượu bia tại Việt Nam và hậu quả."
+        },
+        {
+          "page_id": "MED003-P023",
+          "physical_page_number": 23,
+          "normalized_char_count": 3145,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần II: Tình hình sử dụng rượu bia tại Việt Nam và hậu quả."
+        },
+        {
+          "page_id": "MED003-P024",
+          "physical_page_number": 24,
+          "normalized_char_count": 541,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần II: Tình hình sử dụng rượu bia tại Việt Nam và hậu quả."
+        },
+        {
+          "page_id": "MED003-P025",
+          "physical_page_number": 25,
+          "normalized_char_count": 94,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang phân cách chỉ có tiêu đề."
+        },
+        {
+          "page_id": "MED003-P026",
+          "physical_page_number": 26,
+          "normalized_char_count": 2823,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P027",
+          "physical_page_number": 27,
+          "normalized_char_count": 2658,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P028",
+          "physical_page_number": 28,
+          "normalized_char_count": 2118,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P029",
+          "physical_page_number": 29,
+          "normalized_char_count": 52,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang phân cách chỉ có tiêu đề."
+        },
+        {
+          "page_id": "MED003-P030",
+          "physical_page_number": 30,
+          "normalized_char_count": 2977,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P031",
+          "physical_page_number": 31,
+          "normalized_char_count": 1852,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P032",
+          "physical_page_number": 32,
+          "normalized_char_count": 33,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang phân cách chỉ có tiêu đề."
+        },
+        {
+          "page_id": "MED003-P033",
+          "physical_page_number": 33,
+          "normalized_char_count": 2227,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P034",
+          "physical_page_number": 34,
+          "normalized_char_count": 195,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P035",
+          "physical_page_number": 35,
+          "normalized_char_count": 42,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang phân cách chỉ có tiêu đề."
+        },
+        {
+          "page_id": "MED003-P036",
+          "physical_page_number": 36,
+          "normalized_char_count": 2025,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P037",
+          "physical_page_number": 37,
+          "normalized_char_count": 2534,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P038",
+          "physical_page_number": 38,
+          "normalized_char_count": 1432,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phần III: Giải pháp giảm sử dụng rượu bia ở mức nguy hại và hậu quả."
+        },
+        {
+          "page_id": "MED003-P039",
+          "physical_page_number": 39,
+          "normalized_char_count": 1359,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phụ lục chính sách kiểm soát quảng cáo, có nội dung tra cứu."
+        },
+        {
+          "page_id": "MED003-P040",
+          "physical_page_number": 40,
+          "normalized_char_count": 1007,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Phụ lục chính sách kiểm soát quảng cáo, có nội dung tra cứu."
+        },
+        {
+          "page_id": "MED003-P041",
+          "physical_page_number": 41,
+          "normalized_char_count": 2296,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Tài liệu tham khảo."
+        },
+        {
+          "page_id": "MED003-P042",
+          "physical_page_number": 42,
+          "normalized_char_count": 2599,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Tài liệu tham khảo."
+        },
+        {
+          "page_id": "MED003-P043",
+          "physical_page_number": 43,
+          "normalized_char_count": 2698,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Tài liệu tham khảo."
+        },
+        {
+          "page_id": "MED003-P044",
+          "physical_page_number": 44,
+          "normalized_char_count": 2102,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Tài liệu tham khảo."
+        },
+        {
+          "page_id": "MED003-P045",
+          "physical_page_number": 45,
+          "normalized_char_count": 2,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Trang cuối không có nội dung hữu ích để truy xuất."
+        }
+      ],
+      "accessed_at_note": "Ngày kiểm tra hồ sơ nguồn chính thức.",
+      "official_record_url": "https://www.who.int/vietnam/vi/health-topics/publications/9789290618836",
+      "physical_page_count_note": "File local có 45 trang vật lý. Hồ sơ ấn phẩm WHO liệt kê 34 trang.",
+      "physical_pages": 45,
+      "counted_normalized_chars": 44734
+    },
+    {
+      "source_id": "MED004",
+      "title": "Các bước để kiểm soát bệnh tiểu đường trọn đời",
+      "source_path_or_url": "data/tiểu đường.pdf",
+      "official_source_url": "https://stacks.cdc.gov/view/cdc/55517/cdc_55517_DS1.pdf",
+      "publisher": "CDC",
+      "topic": "diabetes_self_management",
+      "language": "vi",
+      "license_or_permission": "Public Domain theo hồ sơ CDC Stacks. Kiểm tra quyền riêng của thành phần bên thứ ba nếu tái sử dụng.",
+      "accessed_at": "2026-11-13",
+      "publication_date_or_month": "2016-01",
+      "snapshot_version": {
+        "source_publication_version": "Chinh sua 01/2016; CS259466",
+        "sha256": "6f2e96d43ae1f0adf8124c292dc6d6c8326d6dc730fdff3cbc10ca3ded7f0915",
+        "verification": "Khớp checksum SHA256 trên CDC Stacks."
+      },
+      "counted_pages": 12,
+      "total_normalized_chars": 15592,
+      "pages": [
+        {
+          "page_id": "MED004-P001",
+          "physical_page_number": 1,
+          "normalized_char_count": 189,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Bìa."
+        },
+        {
+          "page_id": "MED004-P002",
+          "physical_page_number": 2,
+          "normalized_char_count": 393,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Giới thiệu và mục lục."
+        },
+        {
+          "page_id": "MED004-P003",
+          "physical_page_number": 3,
+          "normalized_char_count": 1087,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P004",
+          "physical_page_number": 4,
+          "normalized_char_count": 507,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P005",
+          "physical_page_number": 5,
+          "normalized_char_count": 979,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P006",
+          "physical_page_number": 6,
+          "normalized_char_count": 962,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P007",
+          "physical_page_number": 7,
+          "normalized_char_count": 797,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P008",
+          "physical_page_number": 8,
+          "normalized_char_count": 440,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P009",
+          "physical_page_number": 9,
+          "normalized_char_count": 897,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P010",
+          "physical_page_number": 10,
+          "normalized_char_count": 1276,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P011",
+          "physical_page_number": 11,
+          "normalized_char_count": 1060,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P012",
+          "physical_page_number": 12,
+          "normalized_char_count": 1063,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P013",
+          "physical_page_number": 13,
+          "normalized_char_count": 764,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P014",
+          "physical_page_number": 14,
+          "normalized_char_count": 943,
+          "counted_in_30_page_quota": true,
+          "review_reason": "Trang nội dung chính về tự quản lý bệnh tiểu đường."
+        },
+        {
+          "page_id": "MED004-P015",
+          "physical_page_number": 15,
+          "normalized_char_count": 727,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Hướng dẫn điền và biểu mẫu theo dõi, ngoài phần nội dung chính được chọn."
+        },
+        {
+          "page_id": "MED004-P016",
+          "physical_page_number": 16,
+          "normalized_char_count": 430,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Hướng dẫn điền và biểu mẫu theo dõi, ngoài phần nội dung chính được chọn."
+        },
+        {
+          "page_id": "MED004-P017",
+          "physical_page_number": 17,
+          "normalized_char_count": 928,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Hướng dẫn điền và biểu mẫu theo dõi, ngoài phần nội dung chính được chọn."
+        },
+        {
+          "page_id": "MED004-P018",
+          "physical_page_number": 18,
+          "normalized_char_count": 778,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Danh sách nguồn tìm hiểu thêm."
+        },
+        {
+          "page_id": "MED004-P019",
+          "physical_page_number": 19,
+          "normalized_char_count": 563,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Danh sách nguồn tìm hiểu thêm."
+        },
+        {
+          "page_id": "MED004-P020",
+          "physical_page_number": 20,
+          "normalized_char_count": 809,
+          "counted_in_30_page_quota": false,
+          "review_reason": "Thông tin xuất bản và liên hệ."
+        }
+      ],
+      "accessed_at_note": "Ngày kiểm tra hồ sơ nguồn chính thức.",
+      "official_record_url": "https://stacks.cdc.gov/view/cdc/55517",
+      "physical_pages": 20,
+      "counted_normalized_chars": 10775
+    }
+  ]
+}

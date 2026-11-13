@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hỏi đáp tài liệu · Day 06</title>
+  <style>
+    :root {color-scheme:light; font-family:"Inter","Segoe UI",sans-serif; color:#182726; background:#f4f7f5; --line:#dce6e0; --green:#166354; --muted:#4d6660}
+    * {box-sizing:border-box} body {margin:0} button,select,textarea {font:inherit}
+    main {width:min(100% - 2rem, 780px); margin:2.25rem auto}
+    header {display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1rem}
+    h1 {margin:0; font-size:clamp(1.55rem,4vw,2.15rem); letter-spacing:-.04em}
+    header p {margin:.35rem 0 0; color:var(--muted)}
+    a {color:var(--green); text-underline-offset:.2em}
+    .panel {background:white; border:1px solid var(--line); border-radius:1rem; box-shadow:0 14px 44px #16372b0a}
+    #messages {min-height:19rem; max-height:58vh; overflow-y:auto; padding:1.2rem; display:flex; flex-direction:column; gap:.85rem}
+    .message {max-width:92%; padding:.9rem 1rem; border-radius:1rem; background:#edf5f0; overflow-wrap:anywhere}
+    .question {align-self:flex-end; background:#166354; color:white; white-space:pre-wrap}
+    .message p {margin:0; line-height:1.55} .message p + p {margin-top:.55rem}
+    .hint,.citation {font-size:.88rem; color:var(--muted)}
+    details {margin-top:.5rem} summary {cursor:pointer; font-size:.9rem; color:var(--green)}
+    details p {white-space:pre-wrap; margin:.4rem 0 0!important; font-size:.93rem}
+    .prompts {display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.7rem}
+    button {cursor:pointer} .prompt,select {background:white; color:var(--green); border:1px solid var(--line); border-radius:.6rem; padding:.45rem .65rem}
+    form {padding:1rem; border-top:1px solid var(--line)}
+    .scope {display:flex; align-items:center; gap:.55rem; font-size:.92rem; margin-bottom:.65rem; color:var(--muted)}
+    .compose {display:flex; align-items:stretch; gap:.65rem}
+    textarea {width:100%; resize:vertical; min-height:3.15rem; padding:.65rem; border:1px solid var(--line); border-radius:.65rem; color:inherit}
+    #send {border:0; border-radius:.65rem; padding:.7rem 1rem; background:var(--green); color:white; font-weight:600}
+    #send:disabled {opacity:.55;cursor:wait}
+    :focus-visible {outline:2px solid #18836d; outline-offset:3px}
+    @media(max-width:540px){main{margin:1rem auto} header{align-items:flex-start} #messages{padding:.8rem; max-height:55vh} .message{max-width:100%}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div><h1>Hỏi đáp tài liệu</h1><p>Day 06 · Trích câu liên quan từ kho PDF</p></div>
+  </header>
+  <section class="panel" aria-label="Chat với tài liệu">
+    <div id="messages" role="log" aria-label="Hội thoại">
+      <article class="message">
+        <p>Bạn muốn tìm gì trong bộ tài liệu tiếng Việt?</p>
+        <p class="hint">Mỗi câu hỏi được tra cứu riêng. Bạn có thể mở các đoạn nguồn bên dưới câu trả lời.</p>
+        <div class="prompts">
+          <button type="button" class="prompt">Huyết áp là gì?</button>
+          <button type="button" class="prompt">Kháng kháng sinh nghĩa là gì?</button>
+          <button type="button" class="prompt">WHO nêu những tác động nào đến an toàn giao thông?</button>
+        </div>
+      </article>
+    </div>
+    <form id="chat">
+      <label class="scope" for="topic">Chủ đề
+        <select id="topic">
+          <option value="">Toàn bộ tài liệu</option>
+          <option value="antibiotic_use">Sử dụng kháng sinh</option>
+          <option value="alcohol_harm_prevention">Tác hại của rượu bia</option>
+          <option value="diabetes_self_management">Tự quản lý bệnh tiểu đường</option>
+        </select>
+      </label>
+      <div class="compose">
+        <textarea id="question" aria-label="Câu hỏi" rows="1" maxlength="600" required placeholder="Nhập câu hỏi của bạn…"></textarea>
+        <button id="send">Gửi</button>
+      </div>
+    </form>
+  </section>
+</main>
+<script>
+  const form = document.querySelector("#chat");
+  const input = document.querySelector("#question");
+  const messages = document.querySelector("#messages");
+  const send = document.querySelector("#send");
+  const topic = document.querySelector("#topic");
+
+  function add(tag, parent, text, css) {
+    const node = document.createElement(tag);
+    if (css) node.className = css;
+    if (text) node.textContent = text;
+    parent.append(node);
+    return node;
+  }
+
+  function scrollToLatest() {
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const question = input.value.trim();
+    if (!question || send.disabled) return;
+    const scope = topic.value;
+    add("article", messages, question, "message question");
+    input.value = "";
+    send.disabled = true;
+    const reply = add("article", messages, "", "message");
+    add("p", reply, "Đang tìm trong tài liệu…");
+    scrollToLatest();
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST", headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({question, topic: scope}),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error);
+      reply.replaceChildren();
+      if (!data.answer) {
+        add("p", reply, "Không có đoạn nào trong phạm vi đã chọn.");
+        return;
+      }
+      add("p", reply, data.answer);
+      const source = data.sources.find(item => item.rank === data.answer_source);
+      add("p", reply, "Trích từ " + source.title + " · PDF trang " + source.page, "citation");
+      for (const hit of data.sources) {
+        const details = add("details", reply);
+        add("summary", details, hit.rank + ". " + hit.title + " · PDF trang " + hit.page + " · cosine " + hit.score.toFixed(3));
+        add("p", details, hit.text);
+      }
+    } catch (error) {
+      reply.replaceChildren();
+      add("p", reply, error.message || "Không kết nối được với máy chủ local.");
+    } finally {
+      send.disabled = false;
+      input.focus();
+      scrollToLatest();
+    }
+  });
+
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+      event.preventDefault();
+      form.requestSubmit();
+    }
+  });
+  for (const prompt of document.querySelectorAll(".prompt")) {
+    prompt.addEventListener("click", () => {
+      if (send.disabled) return;
+      input.value = prompt.textContent;
+      form.requestSubmit();
+    });
+  }
+</script>
+</body>
+</html>

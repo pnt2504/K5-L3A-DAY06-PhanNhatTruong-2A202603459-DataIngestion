@@ -1,0 +1,769 @@
+{
+  "reviewer": "Codex, đọc các mẫu coherence và top-3 test để đề xuất nhãn.",
+  "student_review": {
+    "status": "confirmed",
+    "reviewer": "Phan Nhật Trường",
+    "reviewed_at": "2026-11-13",
+    "decision": "Đồng ý giữ nguyên các nhãn audit do Codex đề xuất."
+  },
+  "consistency_check": {
+    "reviewer": "Codex",
+    "checked_at": "2026-11-13",
+    "method": "Đối chiếu ID chunk của 30 mẫu coherence và 15 lượt grounding với trace, kiểm tra 45 mục metadata và đối chiếu nội dung các chunk với PDF. Nhãn đánh giá giữ nguyên."
+  },
+  "metadata_method": "Đối chiếu 45 chunk với manifest và text trích lại từ PDF gốc.",
+  "scope_method": "Kiểm tra top-3 có khớp topic được yêu cầu ở hai câu test có filter. A và B dùng tìm kiếm không lọc.",
+  "summary": {
+    "A": {
+      "coherence_average": 1.7,
+      "coherence_n": 10,
+      "metadata_correct": 15,
+      "metadata_n": 15,
+      "scope_compliant": 2,
+      "scope_n": 2,
+      "grounding_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 5
+      },
+      "grounding_average": 2.0
+    },
+    "B": {
+      "coherence_average": 1.9,
+      "coherence_n": 10,
+      "metadata_correct": 15,
+      "metadata_n": 15,
+      "scope_compliant": 2,
+      "scope_n": 2,
+      "grounding_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 5
+      },
+      "grounding_average": 2.0
+    },
+    "C": {
+      "coherence_average": 1.9,
+      "coherence_n": 10,
+      "metadata_correct": 15,
+      "metadata_n": 15,
+      "scope_compliant": 2,
+      "scope_n": 2,
+      "grounding_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 5
+      },
+      "grounding_average": 2.0
+    }
+  },
+  "coherence": [
+    {
+      "question_id": "q01",
+      "strategy": "A",
+      "page_id": "MED001-P001",
+      "source_offset": 584,
+      "score": 1,
+      "reason": "Giải thích kháng kháng sinh đầy đủ nhưng câu cuối về kê đơn bị cắt giữa ý.",
+      "chunk_id": "MED001:p1:0-1200"
+    },
+    {
+      "question_id": "q01",
+      "strategy": "B",
+      "page_id": "MED001-P001",
+      "source_offset": 584,
+      "score": 2,
+      "reason": "Giữ phần giải thích kháng thuốc và kết thúc sau một câu hoàn chỉnh.",
+      "chunk_id": "MED001:p1:0-953"
+    },
+    {
+      "question_id": "q01",
+      "strategy": "C",
+      "page_id": "MED001-P001",
+      "source_offset": 584,
+      "score": 2,
+      "reason": "Giữ phần giải thích kháng thuốc và kết thúc sau một câu hoàn chỉnh.",
+      "chunk_id": "MED001:p1:0-953"
+    },
+    {
+      "question_id": "q02",
+      "strategy": "A",
+      "page_id": "MED003-P012",
+      "source_offset": 265,
+      "score": 2,
+      "reason": "Giữ trọn định nghĩa với thời gian và lượng cồn. Phần giải thích có đủ chủ thể.",
+      "chunk_id": "MED003:p12:0-946"
+    },
+    {
+      "question_id": "q02",
+      "strategy": "B",
+      "page_id": "MED003-P012",
+      "source_offset": 265,
+      "score": 2,
+      "reason": "Giữ trọn định nghĩa với thời gian và lượng cồn. Phần giải thích có đủ chủ thể.",
+      "chunk_id": "MED003:p12:0-946"
+    },
+    {
+      "question_id": "q02",
+      "strategy": "C",
+      "page_id": "MED003-P012",
+      "source_offset": 265,
+      "score": 2,
+      "reason": "Giữ trọn định nghĩa với thời gian và lượng cồn. Phần giải thích có đủ chủ thể.",
+      "chunk_id": "MED003:p12:0-946"
+    },
+    {
+      "question_id": "q03",
+      "strategy": "A",
+      "page_id": "MED004-P005",
+      "source_offset": 106,
+      "score": 2,
+      "reason": "Giữ câu hướng dẫn tìm lớp học cùng danh sách các nơi có thể hỏi.",
+      "chunk_id": "MED004:p5:0-979"
+    },
+    {
+      "question_id": "q03",
+      "strategy": "B",
+      "page_id": "MED004-P005",
+      "source_offset": 106,
+      "score": 2,
+      "reason": "Giữ câu hướng dẫn tìm lớp học cùng danh sách các nơi có thể hỏi.",
+      "chunk_id": "MED004:p5:0-979"
+    },
+    {
+      "question_id": "q03",
+      "strategy": "C",
+      "page_id": "MED004-P005",
+      "source_offset": 106,
+      "score": 2,
+      "reason": "Giữ câu hướng dẫn tìm lớp học cùng danh sách các nơi có thể hỏi.",
+      "chunk_id": "MED004:p5:0-979"
+    },
+    {
+      "question_id": "q04",
+      "strategy": "A",
+      "page_id": "MED003-P014",
+      "source_offset": 280,
+      "score": 2,
+      "reason": "Giữ câu hỏi về tai nạn và phần giải thích đầy đủ các ảnh hưởng.",
+      "chunk_id": "MED003:p14:0-569"
+    },
+    {
+      "question_id": "q04",
+      "strategy": "B",
+      "page_id": "MED003-P014",
+      "source_offset": 280,
+      "score": 2,
+      "reason": "Giữ câu hỏi về tai nạn và phần giải thích đầy đủ các ảnh hưởng.",
+      "chunk_id": "MED003:p14:0-569"
+    },
+    {
+      "question_id": "q04",
+      "strategy": "C",
+      "page_id": "MED003-P014",
+      "source_offset": 280,
+      "score": 2,
+      "reason": "Giữ câu hỏi về tai nạn và phần giải thích đầy đủ các ảnh hưởng.",
+      "chunk_id": "MED003:p14:0-569"
+    },
+    {
+      "question_id": "q05",
+      "strategy": "A",
+      "page_id": "MED004-P004",
+      "source_offset": 69,
+      "score": 2,
+      "reason": "Nêu rõ vai trò của người bệnh và danh sách người hỗ trợ.",
+      "chunk_id": "MED004:p4:0-507"
+    },
+    {
+      "question_id": "q05",
+      "strategy": "B",
+      "page_id": "MED004-P004",
+      "source_offset": 69,
+      "score": 2,
+      "reason": "Nêu rõ vai trò của người bệnh và danh sách người hỗ trợ.",
+      "chunk_id": "MED004:p4:0-507"
+    },
+    {
+      "question_id": "q05",
+      "strategy": "C",
+      "page_id": "MED004-P004",
+      "source_offset": 69,
+      "score": 2,
+      "reason": "Nêu rõ vai trò của người bệnh và danh sách người hỗ trợ.",
+      "chunk_id": "MED004:p4:0-507"
+    },
+    {
+      "question_id": "q06",
+      "strategy": "A",
+      "page_id": "MED003-P016",
+      "source_offset": 154,
+      "score": 1,
+      "reason": "Ý về chi phí vô hình đọc được, nhưng phần mở đầu nối dở từ trang trước và bảng bị tuyến tính hóa.",
+      "chunk_id": "MED003:p16:0-848"
+    },
+    {
+      "question_id": "q06",
+      "strategy": "B",
+      "page_id": "MED003-P016",
+      "source_offset": 154,
+      "score": 1,
+      "reason": "Ý về chi phí vô hình đọc được, nhưng phần mở đầu nối dở từ trang trước và bảng bị tuyến tính hóa.",
+      "chunk_id": "MED003:p16:0-848"
+    },
+    {
+      "question_id": "q06",
+      "strategy": "C",
+      "page_id": "MED003-P016",
+      "source_offset": 154,
+      "score": 1,
+      "reason": "Ý về chi phí vô hình đọc được, nhưng phần mở đầu nối dở từ trang trước và bảng bị tuyến tính hóa.",
+      "chunk_id": "MED003:p16:0-848"
+    },
+    {
+      "question_id": "q07",
+      "strategy": "A",
+      "page_id": "MED004-P007",
+      "source_offset": 286,
+      "score": 2,
+      "reason": "Giữ tiêu đề ABC và phần giải thích A1C, gồm khoảng thời gian đo.",
+      "chunk_id": "MED004:p7:0-797"
+    },
+    {
+      "question_id": "q07",
+      "strategy": "B",
+      "page_id": "MED004-P007",
+      "source_offset": 286,
+      "score": 2,
+      "reason": "Giữ tiêu đề ABC và phần giải thích A1C, gồm khoảng thời gian đo.",
+      "chunk_id": "MED004:p7:0-797"
+    },
+    {
+      "question_id": "q07",
+      "strategy": "C",
+      "page_id": "MED004-P007",
+      "source_offset": 286,
+      "score": 2,
+      "reason": "Giữ tiêu đề ABC và phần giải thích A1C, gồm khoảng thời gian đo.",
+      "chunk_id": "MED004:p7:0-797"
+    },
+    {
+      "question_id": "q08",
+      "strategy": "A",
+      "page_id": "MED003-P019",
+      "source_offset": 309,
+      "score": 2,
+      "reason": "Giữ câu so sánh hai năm và nhóm đối tượng. Câu tự đủ nghĩa khi tách khỏi hình.",
+      "chunk_id": "MED003:p19:0-519"
+    },
+    {
+      "question_id": "q08",
+      "strategy": "B",
+      "page_id": "MED003-P019",
+      "source_offset": 309,
+      "score": 2,
+      "reason": "Giữ câu so sánh hai năm và nhóm đối tượng. Câu tự đủ nghĩa khi tách khỏi hình.",
+      "chunk_id": "MED003:p19:0-519"
+    },
+    {
+      "question_id": "q08",
+      "strategy": "C",
+      "page_id": "MED003-P019",
+      "source_offset": 309,
+      "score": 2,
+      "reason": "Giữ câu so sánh hai năm và nhóm đối tượng. Câu tự đủ nghĩa khi tách khỏi hình.",
+      "chunk_id": "MED003:p19:0-519"
+    },
+    {
+      "question_id": "q09",
+      "strategy": "A",
+      "page_id": "MED004-P009",
+      "source_offset": 181,
+      "score": 2,
+      "reason": "Giữ phần giải thích LDL và HDL, gồm vai trò của cả hai loại.",
+      "chunk_id": "MED004:p9:0-897"
+    },
+    {
+      "question_id": "q09",
+      "strategy": "B",
+      "page_id": "MED004-P009",
+      "source_offset": 181,
+      "score": 2,
+      "reason": "Giữ phần giải thích LDL và HDL, gồm vai trò của cả hai loại.",
+      "chunk_id": "MED004:p9:0-897"
+    },
+    {
+      "question_id": "q09",
+      "strategy": "C",
+      "page_id": "MED004-P009",
+      "source_offset": 181,
+      "score": 2,
+      "reason": "Giữ phần giải thích LDL và HDL, gồm vai trò của cả hai loại.",
+      "chunk_id": "MED004:p9:0-897"
+    },
+    {
+      "question_id": "q10",
+      "strategy": "A",
+      "page_id": "MED003-P023",
+      "source_offset": 73,
+      "score": 1,
+      "reason": "Giữ định nghĩa gánh nặng kép nhưng mục cuối kết thúc giữa câu và giữa trích dẫn.",
+      "chunk_id": "MED003:p23:0-1200"
+    },
+    {
+      "question_id": "q10",
+      "strategy": "B",
+      "page_id": "MED003-P023",
+      "source_offset": 73,
+      "score": 2,
+      "reason": "Giữ định nghĩa gánh nặng kép, các ví dụ và dừng ở cuối câu.",
+      "chunk_id": "MED003:p23:0-1077"
+    },
+    {
+      "question_id": "q10",
+      "strategy": "C",
+      "page_id": "MED003-P023",
+      "source_offset": 73,
+      "score": 2,
+      "reason": "Giữ định nghĩa gánh nặng kép, các ví dụ và dừng ở cuối câu.",
+      "chunk_id": "MED003:p23:0-1077"
+    }
+  ],
+  "test": [
+    {
+      "strategy": "A",
+      "question_id": "q16",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn đúng MED001 trang 2 nêu rõ các triệu chứng và giới hạn đối với bệnh do virus.",
+      "evidence_rank": 1,
+      "filter_compliant": true,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED001:p2:1000-1487",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED001:p1:1000-1956",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED001:p1:0-1200",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "question_id": "q16",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn đúng MED001 trang 2 nêu rõ các triệu chứng và giới hạn đối với bệnh do virus.",
+      "evidence_rank": 1,
+      "filter_compliant": true,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED001:p2:1158-1487",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED001:p1:954-1956",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED001:p1:0-953",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "question_id": "q16",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn đúng MED001 trang 2 nêu rõ các triệu chứng và giới hạn đối với bệnh do virus.",
+      "evidence_rank": 1,
+      "filter_compliant": true,
+      "filter_applied": true,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED001:p2:1158-1487",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED001:p1:954-1956",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED001:p1:0-953",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "A",
+      "question_id": "q17",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED003 trang 20 nêu 43,8%, nhóm học sinh từng uống và mốc trước tuổi 14.",
+      "evidence_rank": 1,
+      "filter_compliant": null,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED003:p20:0-1200",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED003:p22:1000-2200",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED003:p19:0-519",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "question_id": "q17",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED003 trang 20 nêu 43,8%, nhóm học sinh từng uống và mốc trước tuổi 14.",
+      "evidence_rank": 1,
+      "filter_compliant": null,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED003:p20:0-1123",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED003:p19:0-519",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED003:p22:1199-2288",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "question_id": "q17",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED003 trang 20 nêu 43,8%, nhóm học sinh từng uống và mốc trước tuổi 14.",
+      "evidence_rank": 1,
+      "filter_compliant": null,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED003:p20:0-1123",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED003:p19:0-519",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED003:p22:1199-2288",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "A",
+      "question_id": "q18",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED004 trang 13 nêu lịch hai lần mỗi năm và điều kiện có thể xét nghiệm thêm.",
+      "evidence_rank": 1,
+      "filter_compliant": null,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED004:p13:0-764",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED004:p7:0-797",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED004:p6:0-962",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "question_id": "q18",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED004 trang 13 nêu lịch hai lần mỗi năm và điều kiện có thể xét nghiệm thêm.",
+      "evidence_rank": 1,
+      "filter_compliant": null,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED004:p13:0-764",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED004:p7:0-797",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED004:p6:0-962",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "question_id": "q18",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED004 trang 13 nêu lịch hai lần mỗi năm và điều kiện có thể xét nghiệm thêm.",
+      "evidence_rank": 1,
+      "filter_compliant": null,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED004:p13:0-764",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED004:p7:0-797",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED004:p6:0-962",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "A",
+      "question_id": "q19",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED003 trang 39 có hàng của Pháp, phương tiện phát thanh và cả hai mốc giờ.",
+      "evidence_rank": 1,
+      "filter_compliant": true,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED003:p39:0-1200",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED003:p37:0-1200",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED003:p37:1000-2200",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "question_id": "q19",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED003 trang 39 có hàng của Pháp, phương tiện phát thanh và cả hai mốc giờ.",
+      "evidence_rank": 1,
+      "filter_compliant": true,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED003:p39:0-1200",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED003:p37:0-1181",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED003:p37:1182-2239",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "question_id": "q19",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED003 trang 39 có hàng của Pháp, phương tiện phát thanh và cả hai mốc giờ.",
+      "evidence_rank": 1,
+      "filter_compliant": true,
+      "filter_applied": true,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED003:p39:0-1200",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED003:p37:0-1181",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED003:p37:1182-2239",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "A",
+      "question_id": "q20",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED004 trang 8 ở hạng 2 nêu định nghĩa đầy đủ, gồm thành mạch máu.",
+      "evidence_rank": 2,
+      "filter_compliant": null,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED004:p7:0-797",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED004:p8:0-440",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED004:p3:0-1087",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "B",
+      "question_id": "q20",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED004 trang 8 ở hạng 2 nêu định nghĩa đầy đủ, gồm thành mạch máu.",
+      "evidence_rank": 2,
+      "filter_compliant": null,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED004:p7:0-797",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED004:p8:0-440",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED004:p3:0-1087",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    },
+    {
+      "strategy": "C",
+      "question_id": "q20",
+      "grounding_score": 2,
+      "grounding_reason": "Đoạn MED004 trang 8 ở hạng 2 nêu định nghĩa đầy đủ, gồm thành mạch máu.",
+      "evidence_rank": 2,
+      "filter_compliant": null,
+      "filter_applied": false,
+      "metadata": [
+        {
+          "rank": 1,
+          "chunk_id": "MED004:p7:0-797",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 2,
+          "chunk_id": "MED004:p8:0-440",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        },
+        {
+          "rank": 3,
+          "chunk_id": "MED004:p3:0-1087",
+          "correct_and_complete": true,
+          "reason": "Khớp đường dẫn, trang PDF, page_id, topic, ngôn ngữ và nội dung tại offset đã ghi."
+        }
+      ]
+    }
+  ]
+}

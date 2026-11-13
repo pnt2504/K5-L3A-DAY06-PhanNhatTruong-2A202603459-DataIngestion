@@ -10,7 +10,27 @@ Biến tài liệu thành kho tri thức có thể truy xuất cho AI agent, r�
 
 ## Bắt đầu nhanh
 
-Dùng [starter PostgreSQL + pgvector](starter/README.md) để dựng database và hoàn thiện các hàm TODO, hoặc tự chọn vector store tương đương. Starter chỉ là khung: **bạn tự hiện thực pipeline và benchmark**.
+Pipeline của bài nộp dùng PostgreSQL + pgvector và multilingual E5 local. Làm theo [hướng dẫn chạy](starter/README.md) để lấy PDF, cài môi trường và tạo lại kết quả. Corpus có 39 trang được chọn trong [manifest](data/manifest.json). Bộ [benchmark](benchmark/README.md) gồm 15 câu dev và 5 câu test.
+
+## Hồ sơ bài nộp
+
+| Nội dung | Đường dẫn |
+|---|---|
+| Thông tin học viên | [STUDENT.md](STUDENT.md) |
+| Cách tải dữ liệu, cài đặt và chạy | [starter/README.md](starter/README.md) |
+| Mã pipeline | [starter/src/](starter/src/) |
+| Manifest và quyền sử dụng dữ liệu | [data/manifest.json](data/manifest.json) |
+| Câu hỏi, split và bằng chứng | [benchmark/questions.jsonl](benchmark/questions.jsonl) |
+| Cấu hình, giả thuyết và kết quả A/B/C | [artifacts/experiment_log.csv](artifacts/experiment_log.csv) |
+| Kết quả và log | [Tổng hợp](results/summary.json), [trace dev](results/dev_traces.jsonl), [trace test](results/test_traces.jsonl), [audit](results/manual_audit.json), [log ingest](results/ingestion.log) |
+| Báo cáo cá nhân | [2A202603459_PhanNhatTruong.md](report/individual/2A202603459_PhanNhatTruong.md) |
+
+## Nguồn và quyền sử dụng
+
+- **MED001, MED002, MED004** lấy từ các hồ sơ CDC Stacks có nhãn Public Domain. MED002 chỉ được kiểm kê và đóng góp 0 trang vào corpus. [Kháng sinh](https://stacks.cdc.gov/view/cdc/60690) · [Răng miệng](https://stacks.cdc.gov/view/cdc/120015) · [Tiểu đường](https://stacks.cdc.gov/view/cdc/55517)
+- **MED003** là *Hỏi đáp về phòng chống tác hại của rượu bia*, © World Health Organization 2019, WHO Regional Office for the Western Pacific, ISBN 9789290618874. Các đoạn trích MED003 trong benchmark, trace và demo được trích từ PDF, chuẩn hóa Unicode và khoảng trắng, rồi cắt theo ranh giới chunk khi áp dụng. Các đoạn trích và bản chuyển thể từ MED003 được chia sẻ cho mục đích phi thương mại theo cùng giấy phép **CC BY-NC-SA 3.0 IGO**. [Ấn phẩm WHO](https://www.who.int/vietnam/vi/health-topics/publications/9789290618836) · [Giấy phép](https://creativecommons.org/licenses/by-nc-sa/3.0/igo/)
+
+Dùng manifest để lấy bản PDF tiếng Việt và đối chiếu SHA-256 trước khi tái tạo kết quả. Dùng số trang vật lý trong PDF khi kiểm tra bằng chứng.
 
 ## 1. Xây pipeline
 

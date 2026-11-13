@@ -1,0 +1,5 @@
+WARNING src.ingestion: No usable text in data/rượu bia.pdf, PDF page 1
+WARNING src.ingestion: No usable text in data/rượu bia.pdf, PDF page 2
+INFO __main__: Stored A: 69 chunks in 3.69s
+INFO __main__: Stored B: 69 chunks in 2.95s
+INFO __main__: Selected B on dev before test retrieval
